@@ -92,7 +92,6 @@ suite('Functional Tests with Zombie.js', function () {
         browser.assert.text('span#name', 'Cristoforo');
         browser.assert.text('span#surname', 'Colombo');
         browser.assert.element('span#dates', 1);
-      assert.fail();
 
       done();
     });
