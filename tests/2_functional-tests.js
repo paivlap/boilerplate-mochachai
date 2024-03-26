@@ -25,7 +25,6 @@ suite('Functional Tests', function () {
     test('Test GET /hello with your name', function (done) {
       chai
         .request(server)
-        .keepOpen()
         .get('/hello?name=Päivi')
         .end(function (err, res) {
           assert.equal(res.status, 200);
@@ -43,7 +42,7 @@ suite('Functional Tests', function () {
         .end(function (err, res) {
           assert.equal(res.status, 200, 'response status should be 200');
           assert.equal(res.type, 'application/json', 'Response should be json');
-          assert.equal(res.body.name, 'Cristoforo', 'res.body.name should be "Christoforo"');
+          assert.equal(res.body.name, 'Cristoforo', 'res.body.name should be "Cristoforo"');
           assert.equal(res.body.surname, 'Colombo', res.body.surname should be "Colombo"');
             
 
@@ -54,7 +53,6 @@ suite('Functional Tests', function () {
     test('Send {surname: "da Verrazzano"}', function (done) {
       chai
         .request(server)
-        .keepOpen()
         .put('/travellers')
         .send({surname: "da Verrazzano"})
         .send({name: "Giovanni"})
