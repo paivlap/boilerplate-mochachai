@@ -50,6 +50,14 @@ suite('Functional Tests', function () {
     });
     // #4
     test('Send {surname: "da Verrazzano"}', function (done) {
+      chai
+        .request(server)
+        .keepOpen()
+        .put('/travellers')
+        .send({
+          "surname": "da Verrazzano"
+        })
+        .end(function (err, res) {
       assert.fail();
 
       done();
